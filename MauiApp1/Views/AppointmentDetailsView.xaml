@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.AppointmentDetailsView"
+             Title="AppointmentDetailsView"
+             NavigatedTo="NavigateTo">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Label Column (Column 0) -->
+        <Grid Grid.Row="0">
+            <Button Text="Cancel" Clicked="ReturnClicked"></Button>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Label Text="Physician:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Label Text="Patient:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0">
+            <Label Text="StartTime:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="0">
+            <Label Text="EndTime:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="5" Grid.Column="0">
+            <Label Text="Day:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        
+        <!-- Component Column (Column 1) -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Picker Title= "Select a Patient" ItemsSource="{Binding Path = Patients}" ItemDisplayBinding="{Binding Path = Name}"></Picker>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <DatePicker Date="{Binding Path=Birthday}" HorizontalOptions="Fill"></DatePicker>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1">
+            <Entry Text="{Binding Path=Address}"></Entry>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <Entry Text="{Binding Path=Race}"></Entry>
+        </Grid>
+                <Grid Grid.Row="5" Grid.Column="1">
+            <Entry Text="{Binding Path=Gender}"></Entry>
+        </Grid>
+                <Grid Grid.Row="6" Grid.Column="1">
+            <Entry Text="{Binding Path=SSN}"></Entry>
+        </Grid>
+        
+        
+        <Grid Grid.Row="7" Grid.ColumnSpan="2">
+            <Button Text="Submit" Clicked="SubmitClicked"></Button>
+        </Grid>
+
+
+
+    </Grid>
+</ContentPage>

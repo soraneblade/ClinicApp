@@ -9,7 +9,7 @@
             Spacing="25">
             <Button Text="Manage Patients" Clicked="ManagePatientsClicked"></Button>
             <Button Text="Manage Physicians" Clicked="ManagePhysiciansClicked"></Button>
-
+            <Button Text="Manage Appointments" Clicked="ManageAppointmentsClicked"></Button>
         </VerticalStackLayout>
     </ScrollView>
 

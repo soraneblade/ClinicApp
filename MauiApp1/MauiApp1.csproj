@@ -68,6 +68,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="Views\AppointmentDetailsView.xaml.cs">
+	    <DependentUpon>AppointmentDetailsView.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\AppointmentView.xaml.cs">
+	    <DependentUpon>AppointmentView.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Views\PatientDetailsView.xaml.cs">
 	    <DependentUpon>PatientDetailsView.xaml</DependentUpon>
 	  </Compile>

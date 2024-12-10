@@ -1,8 +1,6 @@
 using System;
-
 namespace Fall2024_Example_Windows.Models
 {
-
     //Model Class for Patients
     public class Patient
     {
@@ -30,7 +28,6 @@ namespace Fall2024_Example_Windows.Models
         public string? Race {get; set;}
         public string? Gender {get; set;}
         public string? SSN{get; set;}
-
         public Patient()
         {
             Name = string.Empty;
@@ -38,7 +35,6 @@ namespace Fall2024_Example_Windows.Models
             Birthday = DateTime.MinValue;
             SSN = string.Empty;
         }
-
         public Patient(string name, string address, DateTime birthdate, string race, string gender)
         {
             this.Name = name;
@@ -47,7 +43,6 @@ namespace Fall2024_Example_Windows.Models
             this.Race = race;
             this.Gender = gender;
         }
-
         //ToString override that we use when displaying the model in the MAUI views
         public override string ToString()
         {
