@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Views.TreatmentDetailsView"
+             Title="TreatmentDetailsView"
+             NavigatedTo="NavigateTo">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="7*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Label Column (Column 0) -->
+        <Grid Grid.Row="0">
+            <Button Text="Cancel" Clicked="ReturnClicked"></Button>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Label Text="Name:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Label Text="Base Price" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+
+
+        <!-- Component Column (Column 1) -->
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Entry Text="{Binding Path=Name}"></Entry>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Entry Text="{Binding Path= BasePrice}" Keyboard="Numeric"></Entry>
+        </Grid>
+        <Grid Grid.Row="6" Grid.ColumnSpan="2">
+            <Button Text="Submit" Clicked="SubmitClicked"></Button>
+        </Grid>
+    </Grid>
+</ContentPage>

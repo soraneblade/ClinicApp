@@ -46,6 +46,11 @@ public class PatientsViewModel : INotifyPropertyChanged
             NotifyPropertyChanged("Patients");
         }
 
+        public void EditInsurance()
+        {
+            
+        }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -27,8 +27,8 @@ public class PhysicianService
         instance = null;
         Physicians = new List<Physician> 
         {
-            new Physician{Id = 1, Name = "Chris Doe"},
-            new Physician{Id = 2, Name = "Mills Doe"}
+            new Physician{Id = 1, Name = "Chris Doe", Appointments = new List<Appointment>()},
+            new Physician{Id = 2, Name = "Mills Doe", Appointments =  new List<Appointment>()}
         };
     }
 

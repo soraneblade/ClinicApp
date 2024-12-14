@@ -37,12 +37,21 @@ public PatientsView()
         if (patientId != 0)
         {
             Shell.Current.GoToAsync($"//PatientDetailsView?patientId={patientId}");
-
         }
     }
 
     private void DeleteClick(object sender, EventArgs e)
     {
         (BindingContext as PatientsViewModel).Delete();
+    }
+
+    private void EditInsuranceClicked(object sender, EventArgs e)
+    {
+        var patientId = (BindingContext as PatientsViewModel)?.SelectedPatient?.Id ?? 0;
+        if (patientId != 0)
+        {
+            Console.WriteLine($"EditInsuranceClicked {patientId}");
+            Shell.Current.GoToAsync($"//InsuranceView?patientId={patientId}");
+        }
     }
 }

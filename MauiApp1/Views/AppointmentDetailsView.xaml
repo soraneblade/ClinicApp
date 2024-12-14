@@ -15,6 +15,9 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -25,43 +28,77 @@
             <Button Text="Cancel" Clicked="ReturnClicked"></Button>
         </Grid>
         <Grid Grid.Row="1" Grid.Column="0">
-            <Label Text="Physician:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-        </Grid>
-        <Grid Grid.Row="2" Grid.Column="0">
             <Label Text="Patient:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
         </Grid>
+        <Grid Grid.Row="2" Grid.Column="0">
+            <Label Text="Physician:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
         <Grid Grid.Row="3" Grid.Column="0">
-            <Label Text="StartTime:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+            <Label Text="Treatments:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
         </Grid>
         <Grid Grid.Row="4" Grid.Column="0">
+            <Label Text="Add a Treatment:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="6" Grid.Column="0">
+            <Label Text="Patient Insurance: " HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="7" Grid.Column="0">
+            <Label Text="Total Before Insurance: " HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <Grid Grid.Row="8" Grid.Column="0">
+            <Label Text="Total After Insurance: " HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+
+        <!-- <Grid Grid.Row="5" Grid.Column="0">
             <Label Text="EndTime:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
         </Grid>
-        <Grid Grid.Row="5" Grid.Column="0">
+        <Grid Grid.Row="6" Grid.Column="0">
             <Label Text="Day:" HorizontalOptions="Center" VerticalOptions="Center"></Label>
-        </Grid>
+        </Grid> -->
         
         <!-- Component Column (Column 1) -->
         <Grid Grid.Row="1" Grid.Column="1">
-            <Picker Title= "Select a Patient" ItemsSource="{Binding Path = Patients}" ItemDisplayBinding="{Binding Path = Name}"></Picker>
+            <Picker Title= "Select a Patient" ItemsSource="{Binding Path = Patients}" ItemDisplayBinding="{Binding Path = Name}" SelectedItem = "{Binding Path = Patient}"></Picker>
         </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
-            <DatePicker Date="{Binding Path=Birthday}" HorizontalOptions="Fill"></DatePicker>
+            <Picker Title= "Select a Physician" ItemsSource="{Binding Path = Physicians}" ItemDisplayBinding="{Binding Path = Name}" SelectedItem ="{Binding Path = Physician}"></Picker>
         </Grid>
         <Grid Grid.Row="3" Grid.Column="1">
-            <Entry Text="{Binding Path=Address}"></Entry>
+            <ListView 
+                ItemsSource="{Binding Path=Treatments}"
+                >
+            </ListView>
         </Grid>
         <Grid Grid.Row="4" Grid.Column="1">
-            <Entry Text="{Binding Path=Race}"></Entry>
+            <ListView 
+                ItemsSource="{Binding Path=AvailableTreatments}"
+                SelectedItem="{Binding Path=SelectedAvailableTreatment, Mode=TwoWay}"
+                >
+            </ListView>
+            </Grid>
+        <Grid Grid.Row="5" Grid.Column="1">
+            <Button Text="Add Selected Treatment" Clicked="AddTreatmentClicked"></Button>
         </Grid>
-                <Grid Grid.Row="5" Grid.Column="1">
-            <Entry Text="{Binding Path=Gender}"></Entry>
+        <Grid Grid.Row="6" Grid.Column="1">
+            <Label Text="{Binding Path = Model.Patient.InsurancePlan.PlanName}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
         </Grid>
-                <Grid Grid.Row="6" Grid.Column="1">
-            <Entry Text="{Binding Path=SSN}"></Entry>
+        <Grid Grid.Row="7" Grid.Column="1">
+            <Label Text="{Binding Path = Model.TotalWithoutInsurance}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
         </Grid>
+        <Grid Grid.Row="8" Grid.Column="1">
+            <Label Text="{Binding Path = Model.TotalWithInsurance}" HorizontalOptions="Center" VerticalOptions="Center"></Label>
+        </Grid>
+        <!-- <Grid Grid.Row="3" Grid.Column="1">
+            <TimePicker Time="{Binding Path=StartTime}"></TimePicker>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="1">
+            <TimePicker Time="{Binding Path=EndTime}"></TimePicker>
+        </Grid>
+            <Grid Grid.Row="5" Grid.Column="1">
+            <DatePicker Date="{Binding Path=Day}"></DatePicker>
+        </Grid> -->
         
-        
-        <Grid Grid.Row="7" Grid.ColumnSpan="2">
+        <Grid Grid.Row="9" Grid.ColumnSpan="2">
             <Button Text="Submit" Clicked="SubmitClicked"></Button>
         </Grid>
 

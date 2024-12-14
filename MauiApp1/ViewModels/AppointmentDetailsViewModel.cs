@@ -1,4 +1,5 @@
 using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Fall2024_Example_Windows.Models;
@@ -8,7 +9,44 @@ namespace MauiApp1.ViewModels;
 
 public class AppointmentDetailsViewModel : INotifyPropertyChanged
 {
-    public List<Patient> Patients {get; set;}
+    public ObservableCollection<Patient> Patients 
+    {
+        get
+        {
+            return new ObservableCollection<Patient>(PatientService.Current.Patients);
+        } 
+    }
+
+    public ObservableCollection<Physician> Physicians
+    {
+        get
+        {
+            return new ObservableCollection<Physician>(PhysicianService.Current.Physicians);
+        }
+    }
+
+    public ObservableCollection<Treatment> Treatments
+    {
+        get
+        {
+            if(Model.Treatments != null){
+                return new ObservableCollection<Treatment>(Model.Treatments);
+            }else
+            {
+                return new ObservableCollection<Treatment>();
+            }
+        }
+    }
+
+    public ObservableCollection<Treatment> AvailableTreatments
+    {
+        get
+        {
+            return new ObservableCollection<Treatment>(TreatmentService.Current.Treatments);
+        }
+    }
+
+    public Treatment SelectedAvailableTreatment {get; set;}
 
     public Physician Physician { 
         get
@@ -64,15 +102,24 @@ public class AppointmentDetailsViewModel : INotifyPropertyChanged
         }
     }
 
+    public void AddTreatment()
+    {
+        if(SelectedAvailableTreatment != null){
+          Model.Treatments.Add(SelectedAvailableTreatment);
+             NotifyPropertyChanged("Treatments");
+        }
+
+    }
     public AppointmentDetailsViewModel (int appointmentId)
     {
         if(appointmentId <=0)
         {
-            Model = new Appointment();
+            Model = new Appointment(){Treatments = new List<Treatment>()};
         }
         else
         {
             Model = AppointmentService.Current.GetAppointmentById(appointmentId);
+            Console.WriteLine(Model.Id);
         }
     }
 

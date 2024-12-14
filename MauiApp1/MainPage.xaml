@@ -10,6 +10,7 @@
             <Button Text="Manage Patients" Clicked="ManagePatientsClicked"></Button>
             <Button Text="Manage Physicians" Clicked="ManagePhysiciansClicked"></Button>
             <Button Text="Manage Appointments" Clicked="ManageAppointmentsClicked"></Button>
+            <Button Text="Manage Treatments" Clicked="ManageTreatmentsClicked"></Button>
         </VerticalStackLayout>
     </ScrollView>
 

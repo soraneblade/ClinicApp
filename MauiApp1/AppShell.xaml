@@ -39,6 +39,18 @@
         Title="Add / Edit Appointment"
         ContentTemplate="{DataTemplate views:AppointmentDetailsView}"
         Route="AppointmentDetailsView" />
+    <ShellContent
+        Title="Treatment View"
+        ContentTemplate="{DataTemplate views:TreatmentView}"
+        Route="TreatmentView" />
+    <ShellContent
+        Title="Add / Edit Appointment"
+        ContentTemplate="{DataTemplate views:TreatmentDetailsView}"
+        Route="TreatmentDetailsView" />
+    <ShellContent
+        Title="Edit InsuranceInformation"
+        ContentTemplate="{DataTemplate views:InsuranceView}"
+        Route="InsuranceView" />
     
 
 

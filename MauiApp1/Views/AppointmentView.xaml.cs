@@ -34,6 +34,7 @@ public partial class AppointmentView : ContentPage
         var appointmentId = (BindingContext as AppointmentsViewModel)?.SelectedAppointment?.Id ?? 0;
         if (appointmentId != 0)
         {
+            Console.WriteLine($"Editing Appointment {appointmentId}");
             Shell.Current.GoToAsync($"//AppointmentDetailsView?appointmentId={appointmentId}");
 
         }

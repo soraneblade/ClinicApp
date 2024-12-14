@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp1.Views.PatientsView"
-             Title="PatientsView"
+             x:Class="MauiApp1.Views.TreatmentView"
+             Title="TreatmentView"
              NavigatedTo="NavigatedTo">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="1.5*"/>
             <RowDefinition Height="12*"/>
-            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -34,8 +34,8 @@
 
         <Grid Grid.Row="2">
             <ListView 
-                ItemsSource="{Binding Path=Patients}"
-                SelectedItem="{Binding Path=SelectedPatient, Mode=TwoWay}"
+                ItemsSource="{Binding Path=Treatments}"
+                SelectedItem="{Binding Path=SelectedTreatment, Mode=TwoWay}"
                 >
                 <!-- The Binding Path = SelectedPatient matches to the SelectedPatient property in the PatientsViewModel we set as a the binding context-->
             </ListView>
@@ -48,15 +48,9 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
                 <Button Text="Add" Grid.Column="0" Clicked="AddClick"></Button>
                 <Button Text="Edit" Grid.Column="1" Clicked="EditClick"></Button>
                 <Button Text="Delete" Grid.Column="2" Clicked="DeleteClick"></Button>
-                <Button Text="Edit Insurance Information" Grid.Row="2" Clicked="EditInsuranceClicked"></Button>
             </Grid>
         </Grid>
     </Grid>

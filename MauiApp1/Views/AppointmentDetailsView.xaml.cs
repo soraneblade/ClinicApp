@@ -19,13 +19,18 @@ public partial class AppointmentDetailsView : ContentPage
 
     private void SubmitClicked(object sender, EventArgs e)
     {
+        Console.WriteLine("submit clicked");
         (BindingContext as AppointmentDetailsViewModel).Add();
         Shell.Current.GoToAsync("//AppointmentView");
+    }
+
+    private void AddTreatmentClicked (object sender, EventArgs e)
+    {
+        (BindingContext as AppointmentDetailsViewModel).AddTreatment();
     }
 
     private void NavigateTo(object sender, NavigatedToEventArgs e)
     {
         BindingContext = new AppointmentDetailsViewModel(AppointmentId);
-        (BindingContext as AppointmentDetailsViewModel).Patients = PatientService.Current.Patients;
     }
 }

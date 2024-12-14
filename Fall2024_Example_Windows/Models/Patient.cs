@@ -24,10 +24,10 @@ namespace Fall2024_Example_Windows.Models
         }
         public DateTime Birthday{get; set;}
         public string? Address{get; set;}
-
         public string? Race {get; set;}
         public string? Gender {get; set;}
         public string? SSN{get; set;}
+        public InsurancePlan InsurancePlan { get; set; }
         public Patient()
         {
             Name = string.Empty;

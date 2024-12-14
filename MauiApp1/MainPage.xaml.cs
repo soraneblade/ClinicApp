@@ -20,5 +20,10 @@ public partial class MainPage : ContentPage
 	{
 		Shell.Current.GoToAsync("//AppointmentView");
 	}
+
+	private void ManageTreatmentsClicked(object sender, EventArgs e)
+	{
+		Shell.Current.GoToAsync("//TreatmentView");
+	}
 }
 
